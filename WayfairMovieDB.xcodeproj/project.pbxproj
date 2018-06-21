@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8149C8120DBEE5400739F2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149C8020DBEE5400739F2D /* AppDelegate.swift */; };
+		F8149C8320DBEE5400739F2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149C8220DBEE5400739F2D /* ViewController.swift */; };
+		F8149C8620DBEE5400739F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8149C8420DBEE5400739F2D /* Main.storyboard */; };
+		F8149C8820DBEE5600739F2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8149C8720DBEE5600739F2D /* Assets.xcassets */; };
+		F8149C8B20DBEE5600739F2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8149C8920DBEE5600739F2D /* LaunchScreen.storyboard */; };
+		F8149C9620DBEE5600739F2D /* WayfairMovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149C9520DBEE5600739F2D /* WayfairMovieDBTests.swift */; };
+		F8149CA120DBEE5600739F2D /* WayfairMovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149CA020DBEE5600739F2D /* WayfairMovieDBUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8149C9220DBEE5600739F2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8149C7520DBEE5300739F2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8149C7C20DBEE5300739F2D;
+			remoteInfo = WayfairMovieDB;
+		};
+		F8149C9D20DBEE5600739F2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8149C7520DBEE5300739F2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8149C7C20DBEE5300739F2D;
+			remoteInfo = WayfairMovieDB;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F8149C7D20DBEE5400739F2D /* WayfairMovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WayfairMovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8149C8020DBEE5400739F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8149C8220DBEE5400739F2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8149C8520DBEE5400739F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8149C8720DBEE5600739F2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8149C8A20DBEE5600739F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8149C8C20DBEE5600739F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8149C9120DBEE5600739F2D /* WayfairMovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayfairMovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8149C9520DBEE5600739F2D /* WayfairMovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayfairMovieDBTests.swift; sourceTree = "<group>"; };
+		F8149C9720DBEE5600739F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8149C9C20DBEE5600739F2D /* WayfairMovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayfairMovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8149CA020DBEE5600739F2D /* WayfairMovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayfairMovieDBUITests.swift; sourceTree = "<group>"; };
+		F8149CA220DBEE5600739F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8149C7A20DBEE5300739F2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8149C8E20DBEE5600739F2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8149C9920DBEE5600739F2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8149C7420DBEE5300739F2D = {
+			isa = PBXGroup;
+			children = (
+				F8149C7F20DBEE5400739F2D /* WayfairMovieDB */,
+				F8149C9420DBEE5600739F2D /* WayfairMovieDBTests */,
+				F8149C9F20DBEE5600739F2D /* WayfairMovieDBUITests */,
+				F8149C7E20DBEE5400739F2D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8149C7E20DBEE5400739F2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8149C7D20DBEE5400739F2D /* WayfairMovieDB.app */,
+				F8149C9120DBEE5600739F2D /* WayfairMovieDBTests.xctest */,
+				F8149C9C20DBEE5600739F2D /* WayfairMovieDBUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8149C7F20DBEE5400739F2D /* WayfairMovieDB */ = {
+			isa = PBXGroup;
+			children = (
+				F8149C8020DBEE5400739F2D /* AppDelegate.swift */,
+				F8149C8220DBEE5400739F2D /* ViewController.swift */,
+				F8149C8420DBEE5400739F2D /* Main.storyboard */,
+				F8149C8720DBEE5600739F2D /* Assets.xcassets */,
+				F8149C8920DBEE5600739F2D /* LaunchScreen.storyboard */,
+				F8149C8C20DBEE5600739F2D /* Info.plist */,
+			);
+			path = WayfairMovieDB;
+			sourceTree = "<group>";
+		};
+		F8149C9420DBEE5600739F2D /* WayfairMovieDBTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8149C9520DBEE5600739F2D /* WayfairMovieDBTests.swift */,
+				F8149C9720DBEE5600739F2D /* Info.plist */,
+			);
+			path = WayfairMovieDBTests;
+			sourceTree = "<group>";
+		};
+		F8149C9F20DBEE5600739F2D /* WayfairMovieDBUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F8149CA020DBEE5600739F2D /* WayfairMovieDBUITests.swift */,
+				F8149CA220DBEE5600739F2D /* Info.plist */,
+			);
+			path = WayfairMovieDBUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8149C7C20DBEE5300739F2D /* WayfairMovieDB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8149CA520DBEE5600739F2D /* Build configuration list for PBXNativeTarget "WayfairMovieDB" */;
+			buildPhases = (
+				F8149C7920DBEE5300739F2D /* Sources */,
+				F8149C7A20DBEE5300739F2D /* Frameworks */,
+				F8149C7B20DBEE5300739F2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WayfairMovieDB;
+			productName = WayfairMovieDB;
+			productReference = F8149C7D20DBEE5400739F2D /* WayfairMovieDB.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8149C9020DBEE5600739F2D /* WayfairMovieDBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8149CA820DBEE5600739F2D /* Build configuration list for PBXNativeTarget "WayfairMovieDBTests" */;
+			buildPhases = (
+				F8149C8D20DBEE5600739F2D /* Sources */,
+				F8149C8E20DBEE5600739F2D /* Frameworks */,
+				F8149C8F20DBEE5600739F2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8149C9320DBEE5600739F2D /* PBXTargetDependency */,
+			);
+			name = WayfairMovieDBTests;
+			productName = WayfairMovieDBTests;
+			productReference = F8149C9120DBEE5600739F2D /* WayfairMovieDBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F8149C9B20DBEE5600739F2D /* WayfairMovieDBUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8149CAB20DBEE5600739F2D /* Build configuration list for PBXNativeTarget "WayfairMovieDBUITests" */;
+			buildPhases = (
+				F8149C9820DBEE5600739F2D /* Sources */,
+				F8149C9920DBEE5600739F2D /* Frameworks */,
+				F8149C9A20DBEE5600739F2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8149C9E20DBEE5600739F2D /* PBXTargetDependency */,
+			);
+			name = WayfairMovieDBUITests;
+			productName = WayfairMovieDBUITests;
+			productReference = F8149C9C20DBEE5600739F2D /* WayfairMovieDBUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8149C7520DBEE5300739F2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Alexandra Grimes";
+				TargetAttributes = {
+					F8149C7C20DBEE5300739F2D = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					F8149C9020DBEE5600739F2D = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = F8149C7C20DBEE5300739F2D;
+					};
+					F8149C9B20DBEE5600739F2D = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = F8149C7C20DBEE5300739F2D;
+					};
+				};
+			};
+			buildConfigurationList = F8149C7820DBEE5300739F2D /* Build configuration list for PBXProject "WayfairMovieDB" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8149C7420DBEE5300739F2D;
+			productRefGroup = F8149C7E20DBEE5400739F2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8149C7C20DBEE5300739F2D /* WayfairMovieDB */,
+				F8149C9020DBEE5600739F2D /* WayfairMovieDBTests */,
+				F8149C9B20DBEE5600739F2D /* WayfairMovieDBUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8149C7B20DBEE5300739F2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8149C8B20DBEE5600739F2D /* LaunchScreen.storyboard in Resources */,
+				F8149C8820DBEE5600739F2D /* Assets.xcassets in Resources */,
+				F8149C8620DBEE5400739F2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8149C8F20DBEE5600739F2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8149C9A20DBEE5600739F2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8149C7920DBEE5300739F2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8149C8320DBEE5400739F2D /* ViewController.swift in Sources */,
+				F8149C8120DBEE5400739F2D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8149C8D20DBEE5600739F2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8149C9620DBEE5600739F2D /* WayfairMovieDBTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8149C9820DBEE5600739F2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8149CA120DBEE5600739F2D /* WayfairMovieDBUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8149C9320DBEE5600739F2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8149C7C20DBEE5300739F2D /* WayfairMovieDB */;
+			targetProxy = F8149C9220DBEE5600739F2D /* PBXContainerItemProxy */;
+		};
+		F8149C9E20DBEE5600739F2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8149C7C20DBEE5300739F2D /* WayfairMovieDB */;
+			targetProxy = F8149C9D20DBEE5600739F2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F8149C8420DBEE5400739F2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8149C8520DBEE5400739F2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F8149C8920DBEE5600739F2D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8149C8A20DBEE5600739F2D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8149CA320DBEE5600739F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8149CA420DBEE5600739F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8149CA620DBEE5600739F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WayfairMovieDB/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.algrimes.WayfairMovieDB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8149CA720DBEE5600739F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WayfairMovieDB/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.algrimes.WayfairMovieDB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F8149CA920DBEE5600739F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WayfairMovieDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.algrimes.WayfairMovieDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WayfairMovieDB.app/WayfairMovieDB";
+			};
+			name = Debug;
+		};
+		F8149CAA20DBEE5600739F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WayfairMovieDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.algrimes.WayfairMovieDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WayfairMovieDB.app/WayfairMovieDB";
+			};
+			name = Release;
+		};
+		F8149CAC20DBEE5600739F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WayfairMovieDBUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.algrimes.WayfairMovieDBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WayfairMovieDB;
+			};
+			name = Debug;
+		};
+		F8149CAD20DBEE5600739F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WayfairMovieDBUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.algrimes.WayfairMovieDBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WayfairMovieDB;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8149C7820DBEE5300739F2D /* Build configuration list for PBXProject "WayfairMovieDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8149CA320DBEE5600739F2D /* Debug */,
+				F8149CA420DBEE5600739F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8149CA520DBEE5600739F2D /* Build configuration list for PBXNativeTarget "WayfairMovieDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8149CA620DBEE5600739F2D /* Debug */,
+				F8149CA720DBEE5600739F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8149CA820DBEE5600739F2D /* Build configuration list for PBXNativeTarget "WayfairMovieDBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8149CA920DBEE5600739F2D /* Debug */,
+				F8149CAA20DBEE5600739F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8149CAB20DBEE5600739F2D /* Build configuration list for PBXNativeTarget "WayfairMovieDBUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8149CAC20DBEE5600739F2D /* Debug */,
+				F8149CAD20DBEE5600739F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8149C7520DBEE5300739F2D /* Project object */;
+}
