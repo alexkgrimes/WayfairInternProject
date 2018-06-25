@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MwM-sP-dz0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aas-hk-QBS">
-                                <rect key="frame" x="94" y="302" width="187" height="50"/>
+                                <rect key="frame" x="94" y="346" width="187" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WQ5-yA-Fn9"/>
                                 </constraints>
@@ -30,15 +30,14 @@ Movies and TV Shows</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2U-MR-DDQ">
-                                <rect key="frame" x="162.5" y="433" width="51" height="30"/>
+                                <rect key="frame" x="162.5" y="477" width="51" height="30"/>
                                 <state key="normal" title="Browse"/>
                                 <connections>
-                                    <action selector="browseButtonHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vzy-0M-ADq"/>
                                     <segue destination="YMb-40-d6y" kind="show" id="NUb-tZ-0mX"/>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hxa-Fm-eRm">
-                                <rect key="frame" x="29" y="363" width="316" height="56"/>
+                                <rect key="frame" x="29" y="407" width="316" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -55,6 +54,7 @@ Movies and TV Shows</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="38T-GB-ZzT"/>
                     <connections>
                         <outlet property="browseButton" destination="D2U-MR-DDQ" id="kGT-nn-5Hf"/>
                         <outlet property="searchBar" destination="hxa-Fm-eRm" id="iww-B3-Ve0"/>
@@ -70,12 +70,12 @@ Movies and TV Shows</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="140" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1079.2" y="132.68365817091455"/>
         </scene>
         <!--Search Results-->
         <scene sceneID="KKu-nK-rRl">
             <objects>
-                <viewController id="kcG-IW-Ohs" customClass="BrowseViewController" customModule="WayfairMovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrowseViewController" id="kcG-IW-Ohs" customClass="BrowseViewController" customModule="WayfairMovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Klo-Ih-hsK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,10 +125,13 @@ Movies and TV Shows</string>
                         <viewLayoutGuide key="safeArea" id="oD3-SF-n9j"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search Results" id="6Xp-Xl-a46"/>
+                    <connections>
+                        <outlet property="table" destination="iCJ-Qg-1lM" id="69J-tS-ziM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utI-mX-7t6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="133"/>
+            <point key="canvasLocation" x="2591.1999999999998" y="132.68365817091455"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="lWp-mQ-8no">
@@ -143,7 +146,7 @@ Movies and TV Shows</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4An-zg-uya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="126"/>
+            <point key="canvasLocation" x="3224.8000000000002" y="125.4872563718141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZkN-c2-qXM">
@@ -161,7 +164,25 @@ Movies and TV Shows</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ead-ZU-cfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877.60000000000002" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1816.8" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XFp-Jh-DdW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MwM-sP-dz0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3mj-Mo-Ygu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tD1-3Z-v7N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVc-2d-WiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>

@@ -11,15 +11,18 @@ import UIKit
 
 class BrowseViewController: UIViewController {
     
-
+    @IBOutlet weak var table: UITableView!
+    
     private var mediaEntries: SearchResponse?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        parseJSON(closure: getData)
+    }
     
     struct SearchResponse: Decodable {
         let results: [MediaEntry]
         
-        init(results: [MediaEntry]) {
-            self.results = results
-        }
     }
     
     struct MediaEntry: Decodable {
@@ -38,7 +41,7 @@ class BrowseViewController: UIViewController {
    
     }
     
-    func parseJSON () {
+    func parseJSON(closure: @escaping (_ medias: SearchResponse) -> Void) {
         
         // Get the data
         // let urlString = "https://api.themoviedb.org/3/discover/movie?api_key=71ab1b19293efe581c569c1c79d0f004"
@@ -47,6 +50,7 @@ class BrowseViewController: UIViewController {
         
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "GET"
+        
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             guard error == nil else {
@@ -62,26 +66,30 @@ class BrowseViewController: UIViewController {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                self.mediaEntries = try decoder.decode(SearchResponse.self, from: jsonContent)
+                var mediaEntriestmp = try decoder.decode(SearchResponse.self, from: jsonContent)
+                closure(mediaEntriestmp)
             } catch let error {
-                print("Error: Could not decode data.")
+                print("Error when loading into mediaEntries")
             }
             
-//            print(self.mediaEntries?.results.first?.mediaType)
-//            print(self.mediaEntries?.results.count)
-        
+            print("Self.mediaEntries.count after json reading; \(self.mediaEntries?.results.count)")
+            
             
         }
         
         task.resume()
-        
+    }
+    
+    func getData(mediaEntries: SearchResponse) -> Void{
+        DispatchQueue.main.async {
+            self.mediaEntries = mediaEntries
+            self.table.reloadData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        parseJSON()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,6 +100,7 @@ class BrowseViewController: UIViewController {
 
 extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Table view numEntries: \(mediaEntries?.results.count)")
         guard let numEntries = mediaEntries?.results.count else {
             return 0
         }
@@ -116,8 +125,8 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let destination = storyboard.instantiateViewController(withIdentifier: "DetailViewController")
-        navigationController?.pushViewController(destination, animated: true)
+        let detailsView = storyboard.instantiateViewController(withIdentifier: "DetailViewController")
+        navigationController?.pushViewController(detailsView, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
