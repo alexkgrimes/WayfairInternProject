@@ -14,6 +14,8 @@
 		F8149C8B20DBEE5600739F2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8149C8920DBEE5600739F2D /* LaunchScreen.storyboard */; };
 		F8149C9620DBEE5600739F2D /* WayfairMovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149C9520DBEE5600739F2D /* WayfairMovieDBTests.swift */; };
 		F8149CA120DBEE5600739F2D /* WayfairMovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149CA020DBEE5600739F2D /* WayfairMovieDBUITests.swift */; };
+		F8149CAF20DC138100739F2D /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149CAE20DC138100739F2D /* BrowseViewController.swift */; };
+		F8ED1C4E20E1634D003CF982 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		F8149C9C20DBEE5600739F2D /* WayfairMovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayfairMovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8149CA020DBEE5600739F2D /* WayfairMovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayfairMovieDBUITests.swift; sourceTree = "<group>"; };
 		F8149CA220DBEE5600739F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8149CAE20DC138100739F2D /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
+		F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,12 @@
 			children = (
 				F8149C8020DBEE5400739F2D /* AppDelegate.swift */,
 				F8149C8220DBEE5400739F2D /* ViewController.swift */,
+				F8149CAE20DC138100739F2D /* BrowseViewController.swift */,
 				F8149C8420DBEE5400739F2D /* Main.storyboard */,
 				F8149C8720DBEE5600739F2D /* Assets.xcassets */,
 				F8149C8920DBEE5600739F2D /* LaunchScreen.storyboard */,
 				F8149C8C20DBEE5600739F2D /* Info.plist */,
+				F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */,
 			);
 			path = WayfairMovieDB;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8149CAF20DC138100739F2D /* BrowseViewController.swift in Sources */,
 				F8149C8320DBEE5400739F2D /* ViewController.swift in Sources */,
 				F8149C8120DBEE5400739F2D /* AppDelegate.swift in Sources */,
+				F8ED1C4E20E1634D003CF982 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
