@@ -17,14 +17,17 @@ class BrowseViewController: UIViewController {
     var query: String = ""
     let baseUrl = "https://api.themoviedb.org/3/search/multi?api_key=71ab1b19293efe581c569c1c79d0f004&query="
     
+    let imageSize = "w185/"
+    let baseImageUrl = "https://image.tmdb.org/t/p/"
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    var images: [UIImage]? = []
+    
     struct SearchResponse: Decodable {
-        let results: [MediaEntry]
-        
+        var results: [MediaEntry]
     }
     
     struct MediaEntry: Decodable {
@@ -40,10 +43,9 @@ class BrowseViewController: UIViewController {
         let voteCount: Double?
         
         let overview: String?
-   
     }
     
-    func parseJSON(closure: @escaping (_ medias: SearchResponse) -> Void) {
+    func parseDataJSON(closure: @escaping (_ medias: SearchResponse) -> Void) {
         
         // Get the data
         let urlString = baseUrl + query
@@ -78,10 +80,66 @@ class BrowseViewController: UIViewController {
         task.resume()
     }
     
-    func getData(mediaEntries: SearchResponse) -> Void{
+    func getData(mediaEntries: SearchResponse) -> Void {
         DispatchQueue.main.async {
              if self.table != nil {
                 self.mediaEntries = mediaEntries
+                guard let entries = self.mediaEntries?.results else {
+                    print("Media entries not set.")
+                    return
+                }
+                
+                for entry in entries {
+                    var imagePath: String?
+                    
+                    if entry.mediaType == "tv" || entry.mediaType == "movie" {
+                        imagePath = entry.posterPath
+                    } else if entry.mediaType == "person" {
+                        imagePath = entry.profilePath
+                    }
+                    
+                    guard let path = imagePath else {
+                        print("Path not set")
+                        return
+                    }
+                    
+                    self.parseImageJSON(imagePath!, self.setImage)
+                }
+                self.table.reloadData()
+            }
+        }
+    }
+    
+    func parseImageJSON(_ imagePath: String, _ imageClosure: @escaping (_ image: UIImage) -> Void) -> Void {
+        let urlString = baseImageUrl + imageSize + imagePath
+        let url = URL(string: urlString)
+        
+        let session = URLSession(configuration: .default)
+        
+        let getImageFromUrl = session.dataTask(with: url!) { data, response, error in
+            guard error == nil else {
+                print("Error: The URL Session returned error.")
+                return
+            }
+            
+            guard let imageData = data else {
+                print("Error: image file is corrupted")
+                return
+            }
+            
+            let imageTmp = UIImage(data: imageData)
+            imageClosure(imageTmp!)
+        }
+        
+        getImageFromUrl.resume()
+        
+    }
+    
+    func setImage(_ image: UIImage) -> Void {
+        DispatchQueue.main.async {
+            if self.table != nil {
+                self.images?.append(image)
+                print(self.images?.count)
                 self.table.reloadData()
             }
         }
@@ -90,7 +148,7 @@ class BrowseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        parseJSON(closure: getData)
+        parseDataJSON(closure: getData)
     }
     
     override func didReceiveMemoryWarning() {
@@ -109,16 +167,38 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+        let cell: SearchCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! SearchCell
         
-        cell.textLabel?.text = mediaEntries?.results[indexPath.row].mediaType
+        cell.typeLabel?.text = mediaEntries?.results[indexPath.row].mediaType
         
         let type = self.mediaEntries?.results[indexPath.row].mediaType
+        var imagePath: String? = ""
         if type == "movie"{
-            cell.detailTextLabel?.text = mediaEntries?.results[indexPath.row].title
-        } else if type == "person" || type == "tv" {
-            cell.detailTextLabel?.text = mediaEntries?.results[indexPath.row].name
+            cell.mainLabel?.text = mediaEntries?.results[indexPath.row].title
+            imagePath = mediaEntries?.results[indexPath.row].posterPath
+        } else if type == "person" {
+            cell.mainLabel?.text = mediaEntries?.results[indexPath.row].name
+            imagePath = mediaEntries?.results[indexPath.row].profilePath
         }
+        else if type == "tv" {
+            cell.mainLabel?.text = mediaEntries?.results[indexPath.row].name
+            imagePath = mediaEntries?.results[indexPath.row].posterPath
+        }
+        
+        guard imagePath != nil else {
+            print("Error: image path not set")
+            return cell
+        }
+        
+        if indexPath.row < images!.count {
+            guard let cellImage = images?[indexPath.row] else {
+                print("Image not set")
+                return cell
+            }
+            
+            cell.searchImage.image = cellImage
+        }
+        
         
         return cell
     }
@@ -144,6 +224,10 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0
     }
 }
 
