@@ -146,7 +146,7 @@ Movies and TV Shows</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-Aj-trg">
-                                <rect key="frame" x="8" y="337" width="375" height="28"/>
+                                <rect key="frame" x="8" y="337" width="359" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="2QS-gc-7De"/>
                                 </constraints>
@@ -154,8 +154,8 @@ Movies and TV Shows</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0W-Sn-yr5">
-                                <rect key="frame" x="8" y="373" width="375" height="302"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0W-Sn-yr5">
+                                <rect key="frame" x="8" y="373" width="359" height="286"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -163,15 +163,24 @@ Movies and TV Shows</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ymf-Aj-trg" secondAttribute="trailing" constant="8" id="3Fp-5o-5Pb"/>
                             <constraint firstItem="n0W-Sn-yr5" firstAttribute="leading" secondItem="EEM-6o-eHv" secondAttribute="leading" constant="8" id="42F-Ma-6UG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ymf-Aj-trg" secondAttribute="trailing" constant="-24" id="9Ic-JK-RWr"/>
+                            <constraint firstAttribute="bottom" secondItem="n0W-Sn-yr5" secondAttribute="bottom" constant="8" id="AqH-L6-L6r"/>
+                            <constraint firstAttribute="trailing" secondItem="n0W-Sn-yr5" secondAttribute="trailing" constant="8" id="BWK-ka-Fhp"/>
                             <constraint firstItem="n0W-Sn-yr5" firstAttribute="trailing" secondItem="EEM-6o-eHv" secondAttribute="trailing" constant="8" id="CJn-0q-sxx"/>
+                            <constraint firstAttribute="bottom" secondItem="n0W-Sn-yr5" secondAttribute="bottom" constant="8" id="FcK-zW-dDa"/>
                             <constraint firstItem="Ymf-Aj-trg" firstAttribute="top" secondItem="xhh-Gl-4HE" secondAttribute="bottom" constant="37" id="FcS-AH-GhE"/>
+                            <constraint firstAttribute="trailing" secondItem="n0W-Sn-yr5" secondAttribute="trailing" constant="8" id="HP7-G1-KMQ"/>
                             <constraint firstItem="n0W-Sn-yr5" firstAttribute="bottom" secondItem="EEM-6o-eHv" secondAttribute="bottom" constant="8" id="Spn-cV-IPS"/>
                             <constraint firstItem="n0W-Sn-yr5" firstAttribute="top" secondItem="Ymf-Aj-trg" secondAttribute="bottom" constant="8" id="Zak-If-V7i"/>
+                            <constraint firstItem="EEM-6o-eHv" firstAttribute="trailing" secondItem="n0W-Sn-yr5" secondAttribute="trailing" constant="8" id="e5b-nC-M81"/>
+                            <constraint firstAttribute="trailing" secondItem="n0W-Sn-yr5" secondAttribute="trailing" constant="8" id="h9c-B1-ezx"/>
                             <constraint firstItem="Ymf-Aj-trg" firstAttribute="leading" secondItem="EEM-6o-eHv" secondAttribute="leading" constant="8" id="kca-4T-Aht"/>
+                            <constraint firstItem="EEM-6o-eHv" firstAttribute="bottom" secondItem="n0W-Sn-yr5" secondAttribute="bottom" constant="8" id="nyX-zs-WWE"/>
                             <constraint firstItem="Ymf-Aj-trg" firstAttribute="top" secondItem="aWV-eC-jNx" secondAttribute="top" constant="337" id="pWS-cw-sgM"/>
                             <constraint firstItem="n0W-Sn-yr5" firstAttribute="top" secondItem="Ymf-Aj-trg" secondAttribute="bottom" constant="8" symbolic="YES" id="qNU-dy-HUc"/>
+                            <constraint firstAttribute="bottom" secondItem="n0W-Sn-yr5" secondAttribute="bottom" constant="8" id="qmc-wd-dFh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EEM-6o-eHv"/>
                     </view>

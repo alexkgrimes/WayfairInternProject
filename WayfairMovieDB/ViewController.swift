@@ -15,7 +15,6 @@ class ViewController: UIViewController  {
     
     @IBAction func browseButtonHandler(_ sender: Any) {
         let browseView = storyboard?.instantiateViewController(withIdentifier: "BrowseViewController") as! BrowseViewController
-        print("searchBar.text: \(searchBar.text!)")
         browseView.query = searchBar.text!
         navigationController?.pushViewController(browseView, animated: true)
     }

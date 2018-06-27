@@ -130,8 +130,15 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
             print("Error: Invalid media entry")
             return
         }
+        
         detailsView.id = md[indexPath.row].id
         detailsView.mediaType = md[indexPath.row].mediaType
+        detailsView.mediaTitle = md[indexPath.row].title
+        detailsView.name = md[indexPath.row].name
+        detailsView.overview = md[indexPath.row].overview
+        detailsView.posterPath = md[indexPath.row].posterPath
+        detailsView.profilePath = md[indexPath.row].profilePath
+        detailsView.voteAverage = md[indexPath.row].voteAverage
         navigationController?.pushViewController(detailsView, animated: true)
     }
     

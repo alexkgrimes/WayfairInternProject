@@ -13,26 +13,30 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     
-    private var detailInfo: DetailInfo?
-    
-    var headerText: String = ""
-    var detailsText: String = ""
-    var mediaType = ""
+    var detailInfo: DetailInfo?
     
     let movieBaseUrl = "https://api.themoviedb.org/3/movie/"
     let tvBaseUrl = "https://api.themoviedb.org/3/tv/"
     let personBaseUrl = "https://api.themoviedb.org/3/person/"
-    var id: Int = 0
     let key = "?api_key=71ab1b19293efe581c569c1c79d0f004"
+    
+    var id: Int = 0
+    var mediaType: String = ""
+    var mediaTitle: String? = ""
+    var name: String? = ""
+    var posterPath: String? = ""
+    var profilePath: String? = ""
+    
+    var voteAverage: Double? = 0.0
+    var voteCount: Double? = 0.0
+    
+    var biography: String? = ""
+    var overview: String? = ""
     
     struct DetailInfo: Decodable {
         
-        let name: String
-        
-        let overview: String?
-        
-        let biography: String?
-        let profilePath: String?
+        var name: String?
+        var biography: String?
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,13 +47,10 @@ class DetailViewController: UIViewController {
         
         // Get the data
         
-        var urlString = String(id) + key
-        if mediaType == "movie" {
-            urlString = movieBaseUrl + urlString
-        } else if mediaType == "tv" {
-            urlString = tvBaseUrl + urlString
-        } else if mediaType == "person" {
-            urlString = personBaseUrl + urlString
+        var urlString = personBaseUrl + String(id) + key
+
+        if mediaType != "person" {
+            return
         }
         
         print(urlString)
@@ -76,7 +77,6 @@ class DetailViewController: UIViewController {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 var detailInfoTmp = try decoder.decode(DetailInfo.self, from: jsonContent)
                 closure(detailInfoTmp)
-                print(self.detailInfo)
             } catch let error {
                 print("Error when loading into mediaEntries")
                 print(error)
@@ -89,10 +89,9 @@ class DetailViewController: UIViewController {
     func getData(detailInfo: DetailInfo) -> Void{
         DispatchQueue.main.async {
             self.detailInfo = detailInfo
-            self.headerLabel.text = self.detailInfo?.name
-            if self.mediaType == "movie" || self.mediaType == "tv" {
-                self.detailsLabel.text = self.detailInfo?.overview
-            } else if self.mediaType == "person" {
+            
+            if self.mediaType == "person" {
+                self.headerLabel.text = self.detailInfo?.name
                 self.detailsLabel.text = self.detailInfo?.biography
             }
         }
@@ -103,6 +102,23 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         parseDetailInfoJSON(closure: getData)
+        
+        var headerText: String?
+        var detailText: String?
+        let type = mediaType
+        if type == "movie" {
+            headerText = mediaTitle
+            detailText = overview
+        } else if type == "tv"{
+            headerText = name
+            detailText = overview
+        } else if type == "person" {
+            headerText = name
+            detailText = biography
+        }
+        
+        headerLabel.text = headerText
+        detailsLabel.text = detailText
 
     }
 
