@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
+    @IBOutlet weak var detailImageView: UIImageView!
     
     var detailInfo: DetailInfo?
     
@@ -24,8 +25,9 @@ class DetailViewController: UIViewController {
     var mediaType: String = ""
     var mediaTitle: String? = ""
     var name: String? = ""
-    var posterPath: String? = ""
-    var profilePath: String? = ""
+//    var posterPath: String? = ""
+//    var profilePath: String? = ""
+    var image: UIImage? = UIImage()
     
     var voteAverage: Double? = 0.0
     var voteCount: Double? = 0.0
@@ -119,6 +121,10 @@ class DetailViewController: UIViewController {
         
         headerLabel.text = headerText
         detailsLabel.text = detailText
+        detailImageView.image = image
+        detailImageView.contentMode = UIViewContentMode.scaleAspectFill
+        detailImageView.clipsToBounds = true
+        detailImageView.frame.size.height = 120.0
 
     }
 

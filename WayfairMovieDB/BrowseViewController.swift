@@ -169,21 +169,29 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SearchCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! SearchCell
         
-        cell.typeLabel?.text = mediaEntries?.results[indexPath.row].mediaType
         
         let type = self.mediaEntries?.results[indexPath.row].mediaType
+        
+        var mainText: String? = ""
         var imagePath: String? = ""
+        var typeText: String? = ""
         if type == "movie"{
-            cell.mainLabel?.text = mediaEntries?.results[indexPath.row].title
+            mainText = mediaEntries?.results[indexPath.row].title
+            typeText = "MOVIE"
             imagePath = mediaEntries?.results[indexPath.row].posterPath
         } else if type == "person" {
-            cell.mainLabel?.text = mediaEntries?.results[indexPath.row].name
+            mainText = mediaEntries?.results[indexPath.row].name
+            typeText = "THE PERSON"
             imagePath = mediaEntries?.results[indexPath.row].profilePath
         }
         else if type == "tv" {
-            cell.mainLabel?.text = mediaEntries?.results[indexPath.row].name
+            mainText = mediaEntries?.results[indexPath.row].name
+            typeText = "TV SHOW"
             imagePath = mediaEntries?.results[indexPath.row].posterPath
         }
+        
+        cell.typeLabel?.text = typeText
+        cell.mainLabel?.text = mainText
         
         guard imagePath != nil else {
             print("Error: image path not set")
@@ -197,8 +205,14 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             cell.searchImage.image = cellImage
+            
+            cell.searchImage.contentMode = UIViewContentMode.scaleAspectFill
+            cell.searchImage.layer.cornerRadius = (cell.searchImage.frame.size.width) / 16
+            cell.searchImage.clipsToBounds = true
+            cell.searchImage.layer.borderWidth = 12
+            cell.searchImage.layer.borderColor = UIColor.white.cgColor as! CGColor
+            cell.searchImage.tintColor = UIColor.black
         }
-        
         
         return cell
     }
@@ -216,9 +230,10 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         detailsView.mediaTitle = md[indexPath.row].title
         detailsView.name = md[indexPath.row].name
         detailsView.overview = md[indexPath.row].overview
-        detailsView.posterPath = md[indexPath.row].posterPath
-        detailsView.profilePath = md[indexPath.row].profilePath
+//        detailsView.posterPath = md[indexPath.row].posterPath
+//        detailsView.profilePath = md[indexPath.row].profilePath
         detailsView.voteAverage = md[indexPath.row].voteAverage
+        detailsView.image = images![indexPath.row]
         navigationController?.pushViewController(detailsView, animated: true)
     }
     
@@ -227,7 +242,7 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200.0
+        return 160.0
     }
 }
 
