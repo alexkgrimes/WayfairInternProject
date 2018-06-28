@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var detailsLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UITextView!
     @IBOutlet weak var detailImageView: UIImageView!
     
     var detailInfo: DetailInfo?

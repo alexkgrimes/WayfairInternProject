@@ -162,57 +162,43 @@ Movies and TV Shows</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6D-0E-JWw">
-                                <rect key="frame" x="-20" y="0.0" width="415" height="687"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yI8-wg-5ar">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yI8-wg-5ar">
-                                        <rect key="frame" x="20" y="20" width="375" height="472"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-4U-B8E">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="407.5"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-Aj-trg">
-                                                <rect key="frame" x="0.0" y="415.5" width="375" height="28"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="2QS-gc-7De"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0W-Sn-yr5">
-                                                <rect key="frame" x="0.0" y="451.5" width="375" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-4U-B8E">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-Aj-trg">
+                                        <rect key="frame" x="0.0" y="308" width="375" height="28"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="472" id="Ry8-ch-2gz"/>
+                                            <constraint firstAttribute="height" constant="28" id="2QS-gc-7De"/>
                                         </constraints>
-                                    </stackView>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BKj-KP-oCh">
+                                        <rect key="frame" x="0.0" y="344" width="375" height="303"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="yI8-wg-5ar" firstAttribute="centerX" secondItem="h6D-0E-JWw" secondAttribute="centerX" id="6sH-tj-XnQ"/>
-                                    <constraint firstItem="yI8-wg-5ar" firstAttribute="leading" secondItem="h6D-0E-JWw" secondAttribute="leading" constant="20" id="9xU-jS-f1c"/>
-                                    <constraint firstAttribute="bottom" secondItem="yI8-wg-5ar" secondAttribute="bottom" constant="195" id="R8X-1k-nLg"/>
-                                    <constraint firstItem="yI8-wg-5ar" firstAttribute="top" secondItem="h6D-0E-JWw" secondAttribute="top" constant="20" id="TbC-28-ssN"/>
-                                    <constraint firstAttribute="trailing" secondItem="yI8-wg-5ar" secondAttribute="trailing" constant="20" id="doH-OT-aaX"/>
-                                </constraints>
-                            </scrollView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="h6D-0E-JWw" firstAttribute="leading" secondItem="aWV-eC-jNx" secondAttribute="leadingMargin" constant="-36" id="52O-8B-JBh"/>
-                            <constraint firstItem="h6D-0E-JWw" firstAttribute="top" secondItem="aWV-eC-jNx" secondAttribute="top" id="SbX-7m-Kon"/>
-                            <constraint firstItem="h6D-0E-JWw" firstAttribute="centerX" secondItem="aWV-eC-jNx" secondAttribute="centerX" id="d4P-pA-odR"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="h6D-0E-JWw" secondAttribute="bottom" constant="-20" id="vgC-gr-rkk"/>
+                            <constraint firstItem="EEM-6o-eHv" firstAttribute="bottom" secondItem="yI8-wg-5ar" secondAttribute="bottom" id="B3q-Yu-EJi"/>
+                            <constraint firstItem="yI8-wg-5ar" firstAttribute="top" secondItem="EEM-6o-eHv" secondAttribute="top" id="I6t-f0-dPQ"/>
+                            <constraint firstItem="yI8-wg-5ar" firstAttribute="trailing" secondItem="EEM-6o-eHv" secondAttribute="trailing" id="Rdy-h6-DRv"/>
+                            <constraint firstItem="yI8-wg-5ar" firstAttribute="leading" secondItem="EEM-6o-eHv" secondAttribute="leading" id="kFw-cF-ftw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EEM-6o-eHv"/>
                     </view>
                     <connections>
                         <outlet property="detailImageView" destination="t2N-4U-B8E" id="muw-vn-KLw"/>
-                        <outlet property="detailsLabel" destination="n0W-Sn-yr5" id="8Fo-Pe-Uno"/>
+                        <outlet property="detailsLabel" destination="BKj-KP-oCh" id="3HB-KU-Xfh"/>
                         <outlet property="headerLabel" destination="Ymf-Aj-trg" id="cWp-KJ-UZU"/>
                     </connections>
                 </viewController>
