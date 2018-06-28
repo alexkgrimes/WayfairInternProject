@@ -121,11 +121,14 @@ class DetailViewController: UIViewController {
         
         headerLabel.text = headerText
         detailsLabel.text = detailText
+
         detailImageView.image = image
         detailImageView.contentMode = UIViewContentMode.scaleAspectFill
         detailImageView.clipsToBounds = true
-        detailImageView.frame.size.height = 120.0
-
+        detailImageView.layer.borderWidth = 0
+        let screenSize: CGRect = UIScreen.main.bounds
+        // detailImageView.frame = CGRect(x:0, y:0, width: screenSize.width, height: screenSize.height * 0.5)
+    
     }
 
     override func didReceiveMemoryWarning() {

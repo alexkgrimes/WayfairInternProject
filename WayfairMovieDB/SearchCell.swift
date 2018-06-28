@@ -14,6 +14,13 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var searchImage: UIImageView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        searchImage.image = nil
+        //mainLabel = nil
+        //typeLabel = nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

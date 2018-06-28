@@ -102,8 +102,9 @@ Movies and TV Shows</string>
                                                     <color key="textColor" red="0.9860816915842141" green="0.95964409736439937" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50S-M6-Av5">
-                                                    <rect key="frame" x="0.0" y="30" width="375" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50S-M6-Av5">
+                                                    <rect key="frame" x="169.5" y="30" width="36" height="17"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.98608169160000003" green="0.95964409740000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -111,15 +112,15 @@ Movies and TV Shows</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="qfR-6i-8rK" secondAttribute="bottom" constant="-19" id="2br-4F-Bfi"/>
-                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="trailing" secondItem="50S-M6-Av5" secondAttribute="trailing" id="3dp-lT-hdK"/>
                                                 <constraint firstItem="qfR-6i-8rK" firstAttribute="top" secondItem="59A-un-391" secondAttribute="top" id="81L-lw-Phy"/>
+                                                <constraint firstItem="50S-M6-Av5" firstAttribute="width" relation="lessThanOrEqual" secondItem="qfR-6i-8rK" secondAttribute="width" id="C4b-XH-Gg5"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="VzF-Dv-TS0" secondAttribute="bottom" constant="39" id="CTo-YW-P5W"/>
+                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="trailing" secondItem="qfR-6i-8rK" secondAttribute="trailing" id="Jk0-pq-wY5"/>
                                                 <constraint firstItem="VzF-Dv-TS0" firstAttribute="centerY" secondItem="59A-un-391" secondAttribute="centerY" id="Jrr-w6-YU9"/>
-                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="trailing" secondItem="50S-M6-Av5" secondAttribute="trailing" id="Lbc-Jm-jmf"/>
+                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="leading" secondItem="qfR-6i-8rK" secondAttribute="leading" id="TDc-Q3-ByT"/>
                                                 <constraint firstAttribute="trailing" secondItem="qfR-6i-8rK" secondAttribute="trailing" id="VZg-FA-TRS"/>
-                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="leading" secondItem="50S-M6-Av5" secondAttribute="leading" id="f8S-cA-4m6"/>
+                                                <constraint firstItem="50S-M6-Av5" firstAttribute="centerX" secondItem="59A-un-391" secondAttribute="centerX" id="iic-dO-DWO"/>
                                                 <constraint firstItem="qfR-6i-8rK" firstAttribute="leading" secondItem="59A-un-391" secondAttribute="leading" id="j4o-1Y-puW"/>
-                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="leading" secondItem="50S-M6-Av5" secondAttribute="leading" id="rA5-JT-YLO"/>
                                                 <constraint firstItem="VzF-Dv-TS0" firstAttribute="top" secondItem="50S-M6-Av5" secondAttribute="bottom" constant="2" id="xI6-UJ-Jyg"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -165,10 +166,13 @@ Movies and TV Shows</string>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yI8-wg-5ar">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-4U-B8E">
+                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-4U-B8E">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="iT0-99-Xee"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-Aj-trg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymf-Aj-trg">
                                         <rect key="frame" x="0.0" y="308" width="375" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="2QS-gc-7De"/>
@@ -177,7 +181,7 @@ Movies and TV Shows</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BKj-KP-oCh">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BKj-KP-oCh">
                                         <rect key="frame" x="0.0" y="344" width="375" height="303"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>

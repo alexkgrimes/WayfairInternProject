@@ -17,14 +17,14 @@ class BrowseViewController: UIViewController {
     var query: String = ""
     let baseUrl = "https://api.themoviedb.org/3/search/multi?api_key=71ab1b19293efe581c569c1c79d0f004&query="
     
-    let imageSize = "w185/"
+    let imageSize = ""
     let baseImageUrl = "https://image.tmdb.org/t/p/"
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    var images: [UIImage]? = []
+    var images: [String: UIImage] = [:]
     
     struct SearchResponse: Decodable {
         var results: [MediaEntry]
@@ -91,26 +91,38 @@ class BrowseViewController: UIViewController {
                 
                 for entry in entries {
                     var imagePath: String?
+                    var imageSize: String?
+                    print()
+                    print("Another entry")
                     
                     if entry.mediaType == "tv" || entry.mediaType == "movie" {
                         imagePath = entry.posterPath
+                        imageSize = "w780/"
                     } else if entry.mediaType == "person" {
                         imagePath = entry.profilePath
+                        imageSize = "h632/"
                     }
                     
                     guard let path = imagePath else {
-                        print("Path not set")
-                        return
+                        print("JSON did not include a path")
+                        // self.images?.append(UIImage())
+                        self.table.reloadData()
+                        continue
                     }
                     
-                    self.parseImageJSON(imagePath!, self.setImage)
+                    
+                    
+                    self.parseImageJSON(imagePath!, imageSize!, self.setImage)
                 }
-                self.table.reloadData()
+                // self.table.reloadData()
             }
         }
     }
     
-    func parseImageJSON(_ imagePath: String, _ imageClosure: @escaping (_ image: UIImage) -> Void) -> Void {
+    func parseImageJSON(_ imagePath: String, _ imageSize: String, _ imageClosure: @escaping (_ image: UIImage, _ imagePath: String) -> Void) -> Void {
+        
+        
+        
         let urlString = baseImageUrl + imageSize + imagePath
         let url = URL(string: urlString)
         
@@ -119,29 +131,27 @@ class BrowseViewController: UIViewController {
         let getImageFromUrl = session.dataTask(with: url!) { data, response, error in
             guard error == nil else {
                 print("Error: The URL Session returned error.")
+                // self.images?.append(UIImage())
                 return
             }
             
             guard let imageData = data else {
                 print("Error: image file is corrupted")
+                // self.images?.append(UIImage())
                 return
             }
             
             let imageTmp = UIImage(data: imageData)
-            imageClosure(imageTmp!)
+            imageClosure(imageTmp!, imagePath)
         }
-        
         getImageFromUrl.resume()
-        
     }
     
-    func setImage(_ image: UIImage) -> Void {
+    func setImage(_ image: UIImage, _ imagePath: String) -> Void {
         DispatchQueue.main.async {
-            if self.table != nil {
-                self.images?.append(image)
-                print(self.images?.count)
-                self.table.reloadData()
-            }
+            self.images[imagePath] = image
+            print("added an image key/value pair")
+            self.table.reloadData()
         }
     }
     
@@ -175,34 +185,36 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         var mainText: String? = ""
         var imagePath: String? = ""
         var typeText: String? = ""
+        var typeBackgroundColor: UIColor?
         if type == "movie"{
             mainText = mediaEntries?.results[indexPath.row].title
             typeText = "MOVIE"
+            typeBackgroundColor = .red
             imagePath = mediaEntries?.results[indexPath.row].posterPath
         } else if type == "person" {
             mainText = mediaEntries?.results[indexPath.row].name
-            typeText = "THE PERSON"
+            typeText = "THE ACTOR"
+            typeBackgroundColor = .blue
             imagePath = mediaEntries?.results[indexPath.row].profilePath
         }
         else if type == "tv" {
             mainText = mediaEntries?.results[indexPath.row].name
             typeText = "TV SHOW"
+            typeBackgroundColor = .green
             imagePath = mediaEntries?.results[indexPath.row].posterPath
         }
         
+
         cell.typeLabel?.text = typeText
+        cell.typeLabel?.backgroundColor = typeBackgroundColor
         cell.mainLabel?.text = mainText
         
         guard imagePath != nil else {
-            print("Error: image path not set")
+            print("Image path not set in JSON, so don't set image in table cell")
             return cell
         }
         
-        if indexPath.row < images!.count {
-            guard let cellImage = images?[indexPath.row] else {
-                print("Image not set")
-                return cell
-            }
+        if let cellImage = images[imagePath!] {
             
             cell.searchImage.image = cellImage
             
@@ -211,7 +223,9 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
             cell.searchImage.clipsToBounds = true
             cell.searchImage.layer.borderWidth = 12
             cell.searchImage.layer.borderColor = UIColor.white.cgColor as! CGColor
-            cell.searchImage.tintColor = UIColor.black
+        
+        } else {
+            cell.searchImage.image = nil
         }
         
         return cell
@@ -233,7 +247,26 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
 //        detailsView.posterPath = md[indexPath.row].posterPath
 //        detailsView.profilePath = md[indexPath.row].profilePath
         detailsView.voteAverage = md[indexPath.row].voteAverage
-        detailsView.image = images![indexPath.row]
+        
+        let type = self.mediaEntries?.results[indexPath.row].mediaType
+        
+        var imagePath: String? = ""
+        if type == "movie" {
+            imagePath = md[indexPath.row].posterPath
+        } else if type == "person" {
+            imagePath = md[indexPath.row].profilePath
+        } else if type == "tv" {
+            imagePath = md[indexPath.row].posterPath
+        }
+        
+        if let path = imagePath, let detailImage = images[path] {
+            detailsView.image = detailImage
+        }
+        
+//        if let detailImage = images[imagePath!] {
+//            detailsView.image = detailImage
+//        }
+        
         navigationController?.pushViewController(detailsView, animated: true)
     }
     
@@ -242,8 +275,9 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160.0
+        return 180.0
     }
+    
 }
 
 
