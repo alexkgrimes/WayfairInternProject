@@ -13,10 +13,12 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var searchImage: UIImageView!
+    @IBOutlet weak var starsLabel: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         searchImage.image = nil
+        searchImage.backgroundColor = .darkGray
         //mainLabel = nil
         //typeLabel = nil
     }

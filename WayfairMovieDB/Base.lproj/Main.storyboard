@@ -97,13 +97,19 @@ Movies and TV Shows</string>
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzF-Dv-TS0">
-                                                    <rect key="frame" x="0.0" y="49" width="375" height="21"/>
+                                                    <rect key="frame" x="0.0" y="51" width="375" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                                     <color key="textColor" red="0.9860816915842141" green="0.95964409736439937" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C2-Bv-6gu">
+                                                    <rect key="frame" x="0.0" y="69" width="375" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.47069619880000002" green="1" blue="0.72475529149999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50S-M6-Av5">
-                                                    <rect key="frame" x="169.5" y="30" width="36" height="17"/>
+                                                    <rect key="frame" x="169" y="35" width="36" height="17"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.98608169160000003" green="0.95964409740000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -111,22 +117,26 @@ Movies and TV Shows</string>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="qfR-6i-8rK" secondAttribute="bottom" constant="-19" id="2br-4F-Bfi"/>
-                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="top" secondItem="59A-un-391" secondAttribute="top" id="81L-lw-Phy"/>
-                                                <constraint firstItem="50S-M6-Av5" firstAttribute="width" relation="lessThanOrEqual" secondItem="qfR-6i-8rK" secondAttribute="width" id="C4b-XH-Gg5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qfR-6i-8rK" secondAttribute="bottom" constant="-19" id="01F-Hr-E0J"/>
+                                                <constraint firstItem="0C2-Bv-6gu" firstAttribute="top" secondItem="50S-M6-Av5" secondAttribute="bottom" constant="17" id="6lu-S2-YTe"/>
+                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="top" secondItem="59A-un-391" secondAttribute="top" id="8ll-Lp-i0C"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="VzF-Dv-TS0" secondAttribute="bottom" constant="39" id="CTo-YW-P5W"/>
-                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="trailing" secondItem="qfR-6i-8rK" secondAttribute="trailing" id="Jk0-pq-wY5"/>
+                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="leading" secondItem="59A-un-391" secondAttribute="leading" id="Cjx-sc-WTa"/>
+                                                <constraint firstItem="0C2-Bv-6gu" firstAttribute="trailing" secondItem="VzF-Dv-TS0" secondAttribute="trailing" id="HOM-pg-02Q"/>
                                                 <constraint firstItem="VzF-Dv-TS0" firstAttribute="centerY" secondItem="59A-un-391" secondAttribute="centerY" id="Jrr-w6-YU9"/>
-                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="leading" secondItem="qfR-6i-8rK" secondAttribute="leading" id="TDc-Q3-ByT"/>
-                                                <constraint firstAttribute="trailing" secondItem="qfR-6i-8rK" secondAttribute="trailing" id="VZg-FA-TRS"/>
+                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="centerX" secondItem="50S-M6-Av5" secondAttribute="centerX" id="Tfx-Fs-JSJ"/>
                                                 <constraint firstItem="50S-M6-Av5" firstAttribute="centerX" secondItem="59A-un-391" secondAttribute="centerX" id="iic-dO-DWO"/>
-                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="leading" secondItem="59A-un-391" secondAttribute="leading" id="j4o-1Y-puW"/>
-                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="top" secondItem="50S-M6-Av5" secondAttribute="bottom" constant="2" id="xI6-UJ-Jyg"/>
+                                                <constraint firstItem="0C2-Bv-6gu" firstAttribute="leading" secondItem="VzF-Dv-TS0" secondAttribute="leading" id="kiS-f0-vO7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0C2-Bv-6gu" secondAttribute="bottom" constant="17" id="lto-rU-dVa"/>
+                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="trailing" secondItem="VzF-Dv-TS0" secondAttribute="trailing" id="rSr-MS-cCX"/>
+                                                <constraint firstItem="qfR-6i-8rK" firstAttribute="leading" secondItem="VzF-Dv-TS0" secondAttribute="leading" id="rU1-hx-qGR"/>
+                                                <constraint firstItem="VzF-Dv-TS0" firstAttribute="top" secondItem="50S-M6-Av5" secondAttribute="bottom" constant="-1" id="xI6-UJ-Jyg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mainLabel" destination="VzF-Dv-TS0" id="Fvi-L6-W2I"/>
                                             <outlet property="searchImage" destination="qfR-6i-8rK" id="xRQ-BR-aQD"/>
+                                            <outlet property="starsLabel" destination="0C2-Bv-6gu" id="srC-bG-bsf"/>
                                             <outlet property="typeLabel" destination="50S-M6-Av5" id="eKr-xm-ZEW"/>
                                         </connections>
                                     </tableViewCell>

@@ -92,8 +92,6 @@ class BrowseViewController: UIViewController {
                 for entry in entries {
                     var imagePath: String?
                     var imageSize: String?
-                    print()
-                    print("Another entry")
                     
                     if entry.mediaType == "tv" || entry.mediaType == "movie" {
                         imagePath = entry.posterPath
@@ -105,16 +103,11 @@ class BrowseViewController: UIViewController {
                     
                     guard let path = imagePath else {
                         print("JSON did not include a path")
-                        // self.images?.append(UIImage())
-                        self.table.reloadData()
                         continue
                     }
-                    
-                    
-                    
+                
                     self.parseImageJSON(imagePath!, imageSize!, self.setImage)
                 }
-                // self.table.reloadData()
             }
         }
     }
@@ -150,7 +143,6 @@ class BrowseViewController: UIViewController {
     func setImage(_ image: UIImage, _ imagePath: String) -> Void {
         DispatchQueue.main.async {
             self.images[imagePath] = image
-            print("added an image key/value pair")
             self.table.reloadData()
         }
     }
@@ -208,6 +200,27 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         cell.typeLabel?.text = typeText
         cell.typeLabel?.backgroundColor = typeBackgroundColor
         cell.mainLabel?.text = mainText
+        cell.starsLabel?.text = ""
+        
+        // Set stars label
+        if mediaEntries?.results[indexPath.row].voteAverage != nil {
+            let rating = mediaEntries?.results[indexPath.row].voteAverage
+            let ratingOutOfFive = rating! / 2.0
+            print(rating)
+            let currentFont = UIFont(name: "SS Pika", size: 12.0)
+            let starString = NSMutableString()
+            let activeStar = "\u{2605}"
+            let inactiveStar = "\u{2606}"
+            
+            for i in 1...5 {
+                if (ratingOutOfFive >= Double(i)) {
+                    starString.append(activeStar)
+                } else {
+                    starString.append(inactiveStar)
+                }
+            }
+            cell.starsLabel?.text = String(starString)
+        }
         
         guard imagePath != nil else {
             print("Image path not set in JSON, so don't set image in table cell")
@@ -226,6 +239,7 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         
         } else {
             cell.searchImage.image = nil
+            cell.searchImage.backgroundColor = .black
         }
         
         return cell
