@@ -17,6 +17,7 @@
 		F8149CAF20DC138100739F2D /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8149CAE20DC138100739F2D /* BrowseViewController.swift */; };
 		F8ED1C4E20E1634D003CF982 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */; };
 		F8ED1C5020E3D645003CF982 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED1C4F20E3D645003CF982 /* SearchCell.swift */; };
+		F8ED1C5220E6A7DD003CF982 /* TMDb logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ED1C5120E6A7DD003CF982 /* TMDb logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		F8149CAE20DC138100739F2D /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F8ED1C4F20E3D645003CF982 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		F8ED1C5120E6A7DD003CF982 /* TMDb logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TMDb logo.png"; path = "../../../Downloads/TMDb logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				F8149C8C20DBEE5600739F2D /* Info.plist */,
 				F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */,
 				F8ED1C4F20E3D645003CF982 /* SearchCell.swift */,
+				F8ED1C5120E6A7DD003CF982 /* TMDb logo.png */,
 			);
 			path = WayfairMovieDB;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8ED1C5220E6A7DD003CF982 /* TMDb logo.png in Resources */,
 				F8149C8B20DBEE5600739F2D /* LaunchScreen.storyboard in Resources */,
 				F8149C8820DBEE5600739F2D /* Assets.xcassets in Resources */,
 				F8149C8620DBEE5400739F2D /* Main.storyboard in Resources */,

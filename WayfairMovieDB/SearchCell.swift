@@ -19,8 +19,6 @@ class SearchCell: UITableViewCell {
         super.prepareForReuse()
         searchImage.image = nil
         searchImage.backgroundColor = .darkGray
-        //mainLabel = nil
-        //typeLabel = nil
     }
     
     override func awakeFromNib() {

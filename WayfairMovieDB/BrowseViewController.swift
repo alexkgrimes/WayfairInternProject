@@ -14,17 +14,15 @@ class BrowseViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     
     private var mediaEntries: SearchResponse?
-    var query: String = ""
-    let baseUrl = "https://api.themoviedb.org/3/search/multi?api_key=71ab1b19293efe581c569c1c79d0f004&query="
+    private var images: [String: UIImage] = [:]
     
-    let imageSize = ""
+    var query: String = ""
+    let baseUrl: String = "https://api.themoviedb.org/3/search/multi?api_key=71ab1b19293efe581c569c1c79d0f004&query="
     let baseImageUrl = "https://image.tmdb.org/t/p/"
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    var images: [String: UIImage] = [:]
     
     struct SearchResponse: Decodable {
         var results: [MediaEntry]
@@ -44,6 +42,7 @@ class BrowseViewController: UIViewController {
         
         let overview: String?
     }
+    
     
     func parseDataJSON(closure: @escaping (_ medias: SearchResponse) -> Void) {
         
@@ -82,60 +81,63 @@ class BrowseViewController: UIViewController {
     
     func getData(mediaEntries: SearchResponse) -> Void {
         DispatchQueue.main.async {
-             if self.table != nil {
-                self.mediaEntries = mediaEntries
-                guard let entries = self.mediaEntries?.results else {
-                    print("Media entries not set.")
-                    return
+            guard self.table != nil else {
+                print("Table is not initialized")
+                return
+            }
+            
+            self.mediaEntries = mediaEntries
+            guard let entries = self.mediaEntries?.results else {
+                print("Media entries not set.")
+                return
+            }
+            
+            for entry in entries {
+                var imagePath: String?
+                var imageSize: String?
+                
+                let type = entry.mediaType
+                if type == "tv" || type == "movie" {
+                    imagePath = entry.posterPath
+                    imageSize = "w780/"
+                } else if type == "person" {
+                    imagePath = entry.profilePath
+                    imageSize = "h632/"
                 }
                 
-                for entry in entries {
-                    var imagePath: String?
-                    var imageSize: String?
-                    
-                    if entry.mediaType == "tv" || entry.mediaType == "movie" {
-                        imagePath = entry.posterPath
-                        imageSize = "w780/"
-                    } else if entry.mediaType == "person" {
-                        imagePath = entry.profilePath
-                        imageSize = "h632/"
-                    }
-                    
-                    guard let path = imagePath else {
-                        print("JSON did not include a path")
-                        continue
-                    }
-                
-                    self.parseImageJSON(imagePath!, imageSize!, self.setImage)
+                guard imagePath != nil else {
+                    print("JSON did not include a path")
+                    continue
                 }
+            
+                self.parseImageJSON(imagePath!, imageSize!, self.setImage)
             }
         }
     }
     
     func parseImageJSON(_ imagePath: String, _ imageSize: String, _ imageClosure: @escaping (_ image: UIImage, _ imagePath: String) -> Void) -> Void {
         
-        
-        
         let urlString = baseImageUrl + imageSize + imagePath
         let url = URL(string: urlString)
-        
         let session = URLSession(configuration: .default)
         
         let getImageFromUrl = session.dataTask(with: url!) { data, response, error in
             guard error == nil else {
                 print("Error: The URL Session returned error.")
-                // self.images?.append(UIImage())
                 return
             }
             
             guard let imageData = data else {
                 print("Error: image file is corrupted")
-                // self.images?.append(UIImage())
                 return
             }
             
-            let imageTmp = UIImage(data: imageData)
-            imageClosure(imageTmp!, imagePath)
+            guard let imageTmp = UIImage(data: imageData) else {
+                print("Image not able to be cast to UIImage")
+                return
+            }
+            
+            imageClosure(imageTmp, imagePath)
         }
         getImageFromUrl.resume()
     }
@@ -171,7 +173,6 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SearchCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! SearchCell
         
-        
         let type = self.mediaEntries?.results[indexPath.row].mediaType
         
         var mainText: String? = ""
@@ -195,19 +196,16 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
             typeBackgroundColor = .green
             imagePath = mediaEntries?.results[indexPath.row].posterPath
         }
-        
-
+    
         cell.typeLabel?.text = typeText
         cell.typeLabel?.backgroundColor = typeBackgroundColor
         cell.mainLabel?.text = mainText
         cell.starsLabel?.text = ""
         
-        // Set stars label
+        // Make stars label
         if mediaEntries?.results[indexPath.row].voteAverage != nil {
             let rating = mediaEntries?.results[indexPath.row].voteAverage
             let ratingOutOfFive = rating! / 2.0
-            print(rating)
-            let currentFont = UIFont(name: "SS Pika", size: 12.0)
             let starString = NSMutableString()
             let activeStar = "\u{2605}"
             let inactiveStar = "\u{2606}"
@@ -222,22 +220,23 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
             cell.starsLabel?.text = String(starString)
         }
         
-        guard imagePath != nil else {
+        // Set image in tableview
+        guard let path = imagePath else {
             print("Image path not set in JSON, so don't set image in table cell")
             return cell
         }
         
-        if let cellImage = images[imagePath!] {
+        if let cellImage = images[path] {
             
             cell.searchImage.image = cellImage
-            
             cell.searchImage.contentMode = UIViewContentMode.scaleAspectFill
             cell.searchImage.layer.cornerRadius = (cell.searchImage.frame.size.width) / 16
             cell.searchImage.clipsToBounds = true
             cell.searchImage.layer.borderWidth = 12
-            cell.searchImage.layer.borderColor = UIColor.white.cgColor as! CGColor
+            cell.searchImage.layer.borderColor = UIColor.white.cgColor as CGColor
         
         } else {
+            
             cell.searchImage.image = nil
             cell.searchImage.backgroundColor = .black
         }
@@ -245,11 +244,15 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    /*
+        Row selected at func
+    */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let detailsView = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
         guard let md = mediaEntries?.results else {
-            print("Error: Invalid media entry")
+            print("Error: Media entries not set")
             return
         }
         
@@ -258,10 +261,12 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         detailsView.mediaTitle = md[indexPath.row].title
         detailsView.name = md[indexPath.row].name
         detailsView.overview = md[indexPath.row].overview
-//        detailsView.posterPath = md[indexPath.row].posterPath
-//        detailsView.profilePath = md[indexPath.row].profilePath
-        detailsView.voteAverage = md[indexPath.row].voteAverage
         
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: indexPath)! as! SearchCell
+        
+        detailsView.starsText = currentCell.starsLabel.text
+
         let type = self.mediaEntries?.results[indexPath.row].mediaType
         
         var imagePath: String? = ""
@@ -276,10 +281,6 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         if let path = imagePath, let detailImage = images[path] {
             detailsView.image = detailImage
         }
-        
-//        if let detailImage = images[imagePath!] {
-//            detailsView.image = detailImage
-//        }
         
         navigationController?.pushViewController(detailsView, animated: true)
     }

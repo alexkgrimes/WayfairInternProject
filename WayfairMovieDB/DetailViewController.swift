@@ -14,10 +14,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailsLabel: UITextView!
     @IBOutlet weak var detailImageView: UIImageView!
     
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var starLabel: UILabel!
+    
     var detailInfo: DetailInfo?
     
-    let movieBaseUrl = "https://api.themoviedb.org/3/movie/"
-    let tvBaseUrl = "https://api.themoviedb.org/3/tv/"
     let personBaseUrl = "https://api.themoviedb.org/3/person/"
     let key = "?api_key=71ab1b19293efe581c569c1c79d0f004"
     
@@ -25,18 +27,15 @@ class DetailViewController: UIViewController {
     var mediaType: String = ""
     var mediaTitle: String? = ""
     var name: String? = ""
-//    var posterPath: String? = ""
-//    var profilePath: String? = ""
+
     var image: UIImage? = UIImage()
-    
-    var voteAverage: Double? = 0.0
-    var voteCount: Double? = 0.0
     
     var biography: String? = ""
     var overview: String? = ""
     
+    var starsText: String? = ""
+    
     struct DetailInfo: Decodable {
-        
         var name: String?
         var biography: String?
     }
@@ -48,8 +47,7 @@ class DetailViewController: UIViewController {
     func parseDetailInfoJSON(closure: @escaping (_ medias: DetailInfo) -> Void) {
         
         // Get the data
-        
-        var urlString = personBaseUrl + String(id) + key
+        let urlString = personBaseUrl + String(id) + key
 
         if mediaType != "person" {
             return
@@ -77,7 +75,7 @@ class DetailViewController: UIViewController {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                var detailInfoTmp = try decoder.decode(DetailInfo.self, from: jsonContent)
+                let detailInfoTmp = try decoder.decode(DetailInfo.self, from: jsonContent)
                 closure(detailInfoTmp)
             } catch let error {
                 print("Error when loading into mediaEntries")
@@ -107,16 +105,24 @@ class DetailViewController: UIViewController {
         
         var headerText: String?
         var detailText: String?
+        var typeText: String?
+        var typeColor: UIColor?
         let type = mediaType
         if type == "movie" {
             headerText = mediaTitle
             detailText = overview
+            typeText = "MOVIE"
+            typeColor = .red
         } else if type == "tv"{
             headerText = name
             detailText = overview
+            typeText = "TV SHOW"
+            typeColor = .green
         } else if type == "person" {
             headerText = name
             detailText = biography
+            typeText = "THE ACTOR"
+            typeColor = .blue
         }
         
         headerLabel.text = headerText
@@ -126,9 +132,12 @@ class DetailViewController: UIViewController {
         detailImageView.contentMode = UIViewContentMode.scaleAspectFill
         detailImageView.clipsToBounds = true
         detailImageView.layer.borderWidth = 0
-        let screenSize: CGRect = UIScreen.main.bounds
-        // detailImageView.frame = CGRect(x:0, y:0, width: screenSize.width, height: screenSize.height * 0.5)
-    
+        
+        mainLabel.text = headerText
+        typeLabel.text = typeText
+        // typeLabel.backgroundColor = typeColor
+        starLabel.text = starsText
+
     }
 
     override func didReceiveMemoryWarning() {
