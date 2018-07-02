@@ -18,6 +18,7 @@
 		F8ED1C4E20E1634D003CF982 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */; };
 		F8ED1C5020E3D645003CF982 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED1C4F20E3D645003CF982 /* SearchCell.swift */; };
 		F8ED1C5220E6A7DD003CF982 /* TMDb logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ED1C5120E6A7DD003CF982 /* TMDb logo.png */; };
+		F8ED1C5620E6BEBB003CF982 /* no-image-available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8ED1C5520E6BEBB003CF982 /* no-image-available.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F8ED1C4F20E3D645003CF982 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		F8ED1C5120E6A7DD003CF982 /* TMDb logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TMDb logo.png"; path = "../../../Downloads/TMDb logo.png"; sourceTree = "<group>"; };
+		F8ED1C5520E6BEBB003CF982 /* no-image-available.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "no-image-available.jpg"; path = "../../../Downloads/no-image-available.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				F8ED1C4D20E1634D003CF982 /* DetailViewController.swift */,
 				F8ED1C4F20E3D645003CF982 /* SearchCell.swift */,
 				F8ED1C5120E6A7DD003CF982 /* TMDb logo.png */,
+				F8ED1C5520E6BEBB003CF982 /* no-image-available.jpg */,
 			);
 			path = WayfairMovieDB;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8ED1C5620E6BEBB003CF982 /* no-image-available.jpg in Resources */,
 				F8ED1C5220E6A7DD003CF982 /* TMDb logo.png in Resources */,
 				F8149C8B20DBEE5600739F2D /* LaunchScreen.storyboard in Resources */,
 				F8149C8820DBEE5600739F2D /* Assets.xcassets in Resources */,

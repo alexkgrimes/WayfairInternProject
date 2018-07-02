@@ -108,25 +108,28 @@ class DetailViewController: UIViewController {
         var typeText: String?
         var typeColor: UIColor?
         let type = mediaType
+        
         if type == "movie" {
             headerText = mediaTitle
             detailText = overview
             typeText = "MOVIE"
-            typeColor = .red
+            typeColor = UIColor(red:1.00, green:0.20, blue:0.20, alpha:1.0)
         } else if type == "tv"{
             headerText = name
             detailText = overview
             typeText = "TV SHOW"
-            typeColor = .green
+            typeColor = UIColor(red:0.40, green:0.80, blue:0.40, alpha:1.0)
         } else if type == "person" {
             headerText = name
             detailText = biography
             typeText = "THE ACTOR"
-            typeColor = .blue
+            typeColor = UIColor(red:0.20, green:0.40, blue:1.00, alpha:1.0)
         }
-        
+       
+        var typeAttributedText = NSAttributedString(string: typeText!, attributes: [NSAttributedStringKey.backgroundColor : typeColor])
         headerLabel.text = headerText
         detailsLabel.text = detailText
+        typeLabel.attributedText = typeAttributedText
 
         detailImageView.image = image
         detailImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -134,8 +137,6 @@ class DetailViewController: UIViewController {
         detailImageView.layer.borderWidth = 0
         
         mainLabel.text = headerText
-        typeLabel.text = typeText
-        // typeLabel.backgroundColor = typeColor
         starLabel.text = starsText
 
     }

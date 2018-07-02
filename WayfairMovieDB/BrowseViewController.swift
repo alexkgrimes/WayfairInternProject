@@ -12,6 +12,7 @@ import UIKit
 class BrowseViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var queryLabel: UILabel!
     
     private var mediaEntries: SearchResponse?
     private var images: [String: UIImage] = [:]
@@ -19,6 +20,8 @@ class BrowseViewController: UIViewController {
     var query: String = ""
     let baseUrl: String = "https://api.themoviedb.org/3/search/multi?api_key=71ab1b19293efe581c569c1c79d0f004&query="
     let baseImageUrl = "https://image.tmdb.org/t/p/"
+    
+    var queryLabelText: String = ""
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -91,6 +94,12 @@ class BrowseViewController: UIViewController {
                 print("Media entries not set.")
                 return
             }
+        
+            if entries.count == 0 {
+                self.queryLabel.text = "No results found"
+            } else {
+                self.queryLabel.text = "Search Results for \"\(self.query)\""
+            }
             
             for entry in entries {
                 var imagePath: String?
@@ -153,6 +162,15 @@ class BrowseViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         parseDataJSON(closure: getData)
+
+//        queryLabel.text = "Search Results for \"\(self.query)\""
+//        if mediaEntries?.results.count == 0 {
+//             queryLabel.text = "No results"
+//        }
+        var searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -163,8 +181,13 @@ class BrowseViewController: UIViewController {
 
 extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         guard let numEntries = mediaEntries?.results.count else {
             return 0
+        }
+        
+        if numEntries == 0 {
+            queryLabel.text = "No results"
         }
         
         return numEntries
@@ -182,23 +205,23 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         if type == "movie"{
             mainText = mediaEntries?.results[indexPath.row].title
             typeText = "MOVIE"
-            typeBackgroundColor = .red
+            typeBackgroundColor = UIColor(red:1.00, green:0.20, blue:0.20, alpha:1.0)
             imagePath = mediaEntries?.results[indexPath.row].posterPath
         } else if type == "person" {
             mainText = mediaEntries?.results[indexPath.row].name
             typeText = "THE ACTOR"
-            typeBackgroundColor = .blue
+            typeBackgroundColor = UIColor(red:0.20, green:0.40, blue:1.00, alpha:1.0)
             imagePath = mediaEntries?.results[indexPath.row].profilePath
         }
         else if type == "tv" {
             mainText = mediaEntries?.results[indexPath.row].name
             typeText = "TV SHOW"
-            typeBackgroundColor = .green
+            typeBackgroundColor = UIColor(red:0.40, green:0.80, blue:0.40, alpha:1.0)
             imagePath = mediaEntries?.results[indexPath.row].posterPath
         }
     
-        cell.typeLabel?.text = typeText
-        cell.typeLabel?.backgroundColor = typeBackgroundColor
+        var typeAttributedText = NSAttributedString(string: typeText!, attributes: [NSAttributedStringKey.backgroundColor : typeBackgroundColor])
+        cell.typeLabel.attributedText = typeAttributedText
         cell.mainLabel?.text = mainText
         cell.starsLabel?.text = ""
         
@@ -236,9 +259,7 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
             cell.searchImage.layer.borderColor = UIColor.white.cgColor as CGColor
         
         } else {
-            
             cell.searchImage.image = nil
-            cell.searchImage.backgroundColor = .black
         }
         
         return cell
@@ -280,6 +301,10 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
         
         if let path = imagePath, let detailImage = images[path] {
             detailsView.image = detailImage
+        } else {
+            let imageName = "no-image-available.jpg"
+            let noImage = UIImage(named: imageName)
+            detailsView.image = noImage
         }
         
         navigationController?.pushViewController(detailsView, animated: true)
@@ -294,6 +319,8 @@ extension BrowseViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+
+
 
 
 

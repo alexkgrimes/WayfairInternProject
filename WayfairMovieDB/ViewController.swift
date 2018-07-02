@@ -29,11 +29,22 @@ class ViewController: UIViewController  {
         let logoImage = UIImage(named: logoName)
         movieLogoView.image = logoImage
         movieLogoView.contentMode = UIViewContentMode.scaleAspectFit
+        
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let browseView = storyboard?.instantiateViewController(withIdentifier: "BrowseViewController") as! BrowseViewController
+        browseView.query = searchBar.text!
+        navigationController?.pushViewController(browseView, animated: true)
     }
 }
 
